@@ -52,7 +52,7 @@
                 <div class="block myblock">
                     <h3> Registration Form </h3>
                     <div class="myform">
-                        <form role="form" onsubmit="addUser();">
+                        <form role="form" onsubmit="addUser(event);">
                             <label for="fname">First Name</label>
                             <input type="text" id="fname" name="firstname" placeholder="Your name.." required="">
                         
@@ -83,7 +83,7 @@
                             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Your Password.." required="" pattern="[a-zA-Z0-9!@#$%^*()]{8,}" autocomplete="on">
 
                             <button type="submit" id="adduser">Sign Up</button>
-                            <button type="button" id="readuser">Read Data</button>
+                            <!-- <button type="button" id="readuser">Read Data</button> -->
                           </form>
                     </div>
                     <div class="clearfix"></div>

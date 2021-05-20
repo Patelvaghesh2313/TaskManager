@@ -53,9 +53,9 @@
                 <div class="block myblock">
                     <h3> Login Form </h3>
                     <div class="myform">
-                        <form action="/action_page.php">
+                        <form onsubmit="doLogin(event);">
                             <label for="email">Email</label>
-                            <input type="text" id="email" name="email" placeholder="Your Email..">
+                            <input type="text" id="email" name="email" placeholder="Enter Your Email..">
 
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password" placeholder="Enter Your Password..">
@@ -71,9 +71,7 @@
     </div>
 
 
-    <script type="text/javascript">
-        
-    </script>
+    <script src="js/login.js"></script>
     
     <!-- Optional JavaScript; choose one of the two! -->
 

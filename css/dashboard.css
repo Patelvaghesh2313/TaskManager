@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+.task-block{
+    width: 75%;
+    float: left;
+    padding: 15px;
+    border: 1px dotted red;
+}
+.extra-info{
+    width: 25%;
+    float: left;
+    padding: 15px;
+    
+}

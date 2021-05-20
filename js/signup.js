@@ -1,13 +1,12 @@
 
 // ADD NEW USER IN LOCAL STORAGE
 
-console.log('Signup Page');
+console.log('Welcome On Signup Page');
 
 // let addUser = document.getElementById('adduser');
- let addUser;
 let readUser = document.getElementById('readuser');
 
-addUser=()=>{   
+let addUser=(e)=>{   
 
     var keys = Object.keys(localStorage);
     // console.log(keys);
@@ -50,23 +49,25 @@ addUser=()=>{
                             password: password.value
                         }
                         localStorage.setItem(localStorage.length, JSON.stringify(user));
+                        e.preventDefault();
+                        window.location = 'login.htm,'
             }
             else{
                         alert('Password and Confirm-Password Does not matched.')
             }
         }
-        window.location.reload();
+        
 }
 
 // Read User's Data
 
-readUser.onclick= ()=>{
-    var keys = Object.keys(localStorage);
-    console.log(keys);
+// readUser.onclick= ()=>{
+//     var keys = Object.keys(localStorage);
+//     console.log(keys);
 
-    for( key of keys){
+//     for( key of keys){
 
-        var data = JSON.parse(localStorage.getItem(key));
-        console.log(data.fname);
-    }
-}
+//         var data = JSON.parse(localStorage.getItem(key));
+//         console.log(data.fname);
+//     }
+// }
