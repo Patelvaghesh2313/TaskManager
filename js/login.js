@@ -15,7 +15,8 @@ let doLogin = (e) => {
             if(data.email===email.value && data.password===password.value){
                 // alert(`User Logged In Successfully`);
                 e.preventDefault();
-                sessionStorage.setItem(email.value,password.value)  
+                sessionStorage.setItem('Email',email.value)
+                sessionStorage.setItem('Password',password.value)  
                 window.location = 'dashboard.html';
                 
                 // newLocation();          

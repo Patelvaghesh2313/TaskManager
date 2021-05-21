@@ -50,7 +50,7 @@ let addUser=(e)=>{
                         }
                         localStorage.setItem(localStorage.length, JSON.stringify(user));
                         e.preventDefault();
-                        window.location = 'login.htm,'
+                        window.location = 'login.html'
             }
             else{
                         alert('Password and Confirm-Password Does not matched.')

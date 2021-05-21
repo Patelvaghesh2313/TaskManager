@@ -32,6 +32,17 @@ const coordinates= ()=>{
        
     }
 
+    // Session User Authentication
+    var userEmail = sessionStorage.getItem("Email");
+
+    if(userEmail === null){
+        alert("Authentication Problem");
+        window.location = 'login.html'
+    }
+    else{
+        document.getElementById("userEmail").innerHTML = userEmail;
+    }
+
 }
 
 
@@ -98,6 +109,10 @@ const addTask =()=>{
 }
 
 
-
+const logout = (e)=>{
+    e.preventDefault();
+    sessionStorage.clear();
+    window.location = 'login.html';
+}
 
  

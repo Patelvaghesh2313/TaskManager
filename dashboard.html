@@ -31,14 +31,14 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         
                             <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Settings    
+                            <a class="nav-link dropdown-toggle" href="#" id="userEmail" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Edit Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Change Password</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="logout(event);">Logout</a></li>
                             </ul>
                             </li>
                         </ul>
@@ -103,7 +103,7 @@
              <img id="giphy" class="giphy-image">
              <script>
                 function setup() {
-                  giphy_api = "http://api.giphy.com/v1/stickers/random?api_key=20UQg9nRMvMfmg4Eb3Bv4BAR3vbIxvMc&tag=oops";
+                  giphy_api = "http://api.giphy.com/v1/stickers/random?api_key=20UQg9nRMvMfmg4Eb3Bv4BAR3vbIxvMc&tag=love";
                   setInterval(()=>{
                     loadJSON(giphy_api, gotData)
                   },2000);
