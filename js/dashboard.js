@@ -84,8 +84,7 @@ const addTask =()=>{
 
     // Click on a close button to hide the current list item
     var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
+    for (var i = 0; i < close.length; i++) {
     close[i].onclick = function(){
         var div = this.parentElement;
         div.style.display = 'none';
@@ -95,12 +94,10 @@ const addTask =()=>{
     var complete = document.getElementsByClassName("correct");
     for(var j=0; j < complete.length; j++){
      complete[j].onclick = function(){
-        var completedTask = this.parentElement;
-        // completedTask.tagName("SPAN")
-        completedTask.removeChild(closeBox);
-        // alert(completedTask.textContent)
+        var completedTask = this.parentElement; // to get parentelent object
+        // alert(completedTask.childNodes[0].textContent);
         var myList = document.createElement("li");
-        var mycompletedTask = document.createTextNode(completedTask.textContent);
+        var mycompletedTask = document.createTextNode(completedTask.childNodes[0].textContent); // to get only parent element's content
         myList.appendChild(mycompletedTask)
         document.getElementById('myCompletedTask').appendChild(myList);
         completedTask.style.display = 'none';

@@ -35,9 +35,6 @@
                                  
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Change Password</a></li>
-                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#" onclick="logout(event);">Logout</a></li>
                             </ul>
                             </li>
@@ -54,6 +51,9 @@
         </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#completed" type="button" role="tab" aria-controls="profile" aria-selected="false">Completed tasks </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#editprofile" type="button" role="tab" aria-controls="profile" aria-selected="false">Edit Profile</button>
         </li>
        
       </ul>
@@ -74,11 +74,21 @@
       <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="profile-tab">
         <div class="completed-tasks">
           <ul id="myCompletedTask">
-            Completed
+            Completed task list
+            
+          </ul>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="editprofile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="completed-tasks">
+          Edit Profile
+          <ul id="myCompletedTask">
+            
             <li id="1"></li>
           </ul>
         </div>
       </div>
+      
       </div>
     </div>
     <div class="extra-info">
