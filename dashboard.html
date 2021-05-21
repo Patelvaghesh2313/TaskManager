@@ -14,7 +14,7 @@
 
     <title>Home</title>
   </head>
-  <body>    
+  <body onload="coordinates();">    
     <div class="row">
         <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
             <img src="/images/download.jpg" style="width: 50px; height: 50px; border-radius: 13px;"> 
@@ -50,15 +50,24 @@
       <p>Resize the browser window to see how the content respond to the resizing.</p>
     </div>
     <div class="extra-info">
-        <ul>
-          <li>The Flight</li>
-          <li>The City</li>
-          <li>The Island</li>
-          <li>The Food</li>
-        </ul>
-      </div>
+      <div class="weather-header"><h4>Weather Data</h4></div>
+       <div class="row">
+         <div class="weather-block">
+           <div class="weather-data">
+             <ul>
+               <li>City: <span id="city"></span> </li>
+               <li>Temprature: <span  id="temprature"></span></li>
+               <li>Weather: <span  id="weather"></span> </li>
+               <li>Current Time: <span id="time"></span> </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+    </div>
       
     
+      <!-- Local JS Files -->
+      <script src="/js/dashboard.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

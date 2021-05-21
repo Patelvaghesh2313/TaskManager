@@ -9,8 +9,24 @@
     border: 1px dotted red;
 }
 .extra-info{
+    background-color: darkgoldenrod;
     width: 25%;
     float: left;
     padding: 15px;
     
+}
+
+.weather-block{
+    background-color: skyblue;
+    width: 150px;
+    height: 150px;
+    margin: 0%;
+}
+
+.weather-data{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding: 5px;
+    color: darkblue;
+    font-weight: 900;
 }
