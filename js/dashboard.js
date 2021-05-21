@@ -35,6 +35,7 @@ const coordinates= ()=>{
 }
 
 
+
 const addTask =()=>{
      var li = document.createElement("li");
      var inputTask = document.getElementById("myInputTask").value;
@@ -48,26 +49,50 @@ const addTask =()=>{
     }
     document.getElementById("myInputTask").value = "";
     li.className = "task-list";
-
+    
 
     var mywholeList = document.getElementsByClassName("task-list");
     for (var i=0; i< mywholeList.length; i++)
     {
-        var closeBox = document.createElement("SPAN");
-        var symbol = document.createTextNode("\u00D7");;
+        var closeBox = document.createElement("BUTTON");
+        var symbol = document.createTextNode("\u00D7");
+
+        var correctBox = document.createElement("BUTTON");
+        var correctSymbol = document.createTextNode("\u2713");
+
         closeBox.className="close";
         closeBox.appendChild(symbol);
 
+        correctBox.className="correct";
+        correctBox.appendChild(correctSymbol);
+
+        mywholeList[i].appendChild(correctBox);
         mywholeList[i].appendChild(closeBox);
     }
     
+
     // Click on a close button to hide the current list item
     var close = document.getElementsByClassName("close");
     var i;
     for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
+    close[i].onclick = function(){
         var div = this.parentElement;
-        div.style.display = "none";
+        div.style.display = 'none';
+    }
+    }
+
+    var complete = document.getElementsByClassName("correct");
+    for(var j=0; j < complete.length; j++){
+     complete[j].onclick = function(){
+        var completedTask = this.parentElement;
+        // completedTask.tagName("SPAN")
+        completedTask.removeChild(closeBox);
+        // alert(completedTask.textContent)
+        var myList = document.createElement("li");
+        var mycompletedTask = document.createTextNode(completedTask.textContent);
+        myList.appendChild(mycompletedTask)
+        document.getElementById('myCompletedTask').appendChild(myList);
+        completedTask.style.display = 'none';
     }
     }
 }
@@ -75,4 +100,4 @@ const addTask =()=>{
 
 
 
-
+ 
