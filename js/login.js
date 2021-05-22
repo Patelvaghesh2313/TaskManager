@@ -3,27 +3,24 @@ console.log('Welcome On Login Page');
 
 
 let doLogin = (e) => {
-   var keys = Object.keys(localStorage);
-    // console.log(keys);
-
+  
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     
-    
-        for( key of keys){
-            var data = JSON.parse(localStorage.getItem(key));
-            if(data.email===email.value && data.password===password.value){
-                // alert(`User Logged In Successfully`);
-                e.preventDefault();
-                sessionStorage.setItem('Email',email.value)
-                sessionStorage.setItem('Password',password.value)  
-                window.location = 'dashboard.html';
-                
-                // newLocation();          
-            }
-            else{
-                console.log('email and password does not matched')
-            }
-        }
+    var authEmail = JSON.parse(localStorage.getItem('email'));
+    var authPassword = JSON.parse(localStorage.getItem('password'));
+    if(authEmail===email.value && authPassword===password.value){
+        // alert(`User Logged In Successfully`);
+        e.preventDefault();
+        sessionStorage.setItem('Email',email.value)
+        sessionStorage.setItem('Password',password.value)  
+        window.location = 'dashboard.html';
+        
+        // newLocation();          
+    }
+    else{
+        alert('Email and Password does not matched!!!');
+    }
+
 }
 

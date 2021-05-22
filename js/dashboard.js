@@ -70,14 +70,21 @@ const addTask =()=>{
         var correctBox = document.createElement("BUTTON");
         var correctSymbol = document.createTextNode("\u2713");
 
+        var editBox = document.createElement("BUTTON");
+        var editText = document.createTextNode("Edit");
+
         closeBox.className="close";
         closeBox.appendChild(symbol);
 
         correctBox.className="correct";
         correctBox.appendChild(correctSymbol);
 
+        editBox.className="editBtn";
+        editBox.appendChild(editText);
+
         mywholeList[i].appendChild(correctBox);
         mywholeList[i].appendChild(closeBox);
+        mywholeList[i].appendChild(editBox);
     }
     
 
@@ -102,6 +109,18 @@ const addTask =()=>{
         completedTask.style.display = 'none';
     }
     }
+
+    var editTextContent = document.getElementsByClassName("editBtn");
+    for(var k=0; k<editTextContent.length; k++)
+    {
+        editTextContent[k].onclick = function(){
+            var editTask = this.parentElement;
+            // alert(this.parentElement.childNodes[0].textContent);
+
+            document.getElementById("myInputTask").value = editTask.childNodes[0].textContent;  // selected task put inside input field
+            editTask.style.display = 'none';
+        }
+    }
 }
 
 
@@ -113,7 +132,6 @@ const logout = (e)=>{
 
  
 const disableProfile = () =>{
-    var keys = Object.keys(localStorage);
 
     document.getElementById("tfname").disabled = true;
     document.getElementById("tlname").disabled = true;
@@ -123,20 +141,22 @@ const disableProfile = () =>{
 
     var loggedUser = sessionStorage.getItem("Email");
 
-    for( key of keys){
-        var data = JSON.parse(localStorage.getItem(key));
-        if(data.email===loggedUser){
-            var usedEmail = data.email;
-            var userFname = data.fname
-            document.getElementById("tfname").value = data.fname;
-            document.getElementById("tlname").value = data.lname;
-            document.getElementById("temail").value = data.email;
-            document.getElementById("tmobile").value = data.mobile;
-            
-            alert(`User Already Registered With This Email...${usedEmail} and ${userFname}`);
-        }
+    
+    var authEmail = JSON.parse(localStorage.getItem('email'));
+    var authFname = JSON.parse(localStorage.getItem('fname'));
+    var authLname = JSON.parse(localStorage.getItem('lname'));
+    var authMobile = JSON.parse(localStorage.getItem('mobile'));
+    if(authEmail===loggedUser){
+        document.getElementById("tfname").value = authFname;
+        document.getElementById("tlname").value = authLname;
+        document.getElementById("temail").value = authEmail;
+        document.getElementById("tmobile").value = authMobile;
+        
+        //alert(`User Already Registered With This Email...${usedEmail} and ${userFname}`);
     }
+    
 }
+
 
 const enableProfile = () =>{
     document.getElementById("tfname").disabled = false;
@@ -148,8 +168,6 @@ const enableProfile = () =>{
 
 const updateProfile = () =>{
 
-    var keys = Object.keys(localStorage);
-
     let pfname = document.getElementById('tfname');
     let plname =  document.getElementById('tlname');
     let pemail = document.getElementById('temail');
@@ -157,21 +175,67 @@ const updateProfile = () =>{
 
     var authUser = sessionStorage.getItem("Email");
 
-    for( key of keys){
-        var data = JSON.parse(localStorage.getItem(key));
-        if(data.email===authUser){
-            var usedEmail = data.email;
-            let user = {
-                fname: pfname.value,
-                lname: plname.value,
-                email: pemail.value,
-                mobile: pmobile.value,
-                dob: data.dob,
-                gender: data.gender,
-                password: data.password
-                }
-            localStorage.setItem(key, JSON.stringify(user));
+
+    var authEmail = JSON.parse(localStorage.getItem('email'));
+    
+    if(authEmail===authUser){
+    
+        localStorage.setItem('fname', JSON.stringify(pfname.value));
+        localStorage.setItem('lname', JSON.stringify(plname.value));
+        localStorage.setItem('email', JSON.stringify(pemail.value));
+        localStorage.setItem('mobile', JSON.stringify(pmobile.value));
+       
+        sessionStorage.setItem('Email',pemail.value);
+
+        // Session User Authentication
+        var userEmail = sessionStorage.getItem("Email");
+
+        if(userEmail === null){
+            alert("Authentication Problem");
+            window.location = 'login.html'
         }
+        else{
+            document.getElementById("userEmail").innerHTML = userEmail;
+        }
+        
     }
+    
+
+}
+
+
+const changePassword = () =>{
+
+    let current_password = document.getElementById('currentpassword');
+    let new_password =  document.getElementById('newpassord');
+    let confirm_new_password = document.getElementById('cnewpassword');
+    
+
+    var authUser = sessionStorage.getItem("Email");
+    var authPassword  = sessionStorage.getItem("Password");
+
+    var authEmail = JSON.parse(localStorage.getItem('email'));
+    
+    if(authUser===authEmail){
+        if(authPassword===current_password.value && new_password.value===confirm_new_password.value){
+            
+            localStorage.setItem('password', JSON.stringify(new_password.value));
+            sessionStorage.setItem('Password',new_password.value);
+            alert(`${authUser}'s password has updated...`)
+            document.getElementById('currentpassword').value = "";
+            document.getElementById('newpassord').value = "";
+            document.getElementById('cnewpassword').value = "";
+
+        }
+        else{
+            alert(`Something went wrong !!!`);
+        }   
+        
+        
+    }
+    else{
+        alert(`User's password is not Authorize...`)
+    }
+
 
 }

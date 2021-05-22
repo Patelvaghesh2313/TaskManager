@@ -81,7 +81,7 @@ ul li.task-list{
     left: auto;
     float: left;
     top: 0;
-    margin-left: 90px;
+    margin-left: 220px;
     padding: 12px 16px 12px 16px;
     border-radius: 4px;
   }
@@ -97,7 +97,7 @@ ul li.task-list{
     left: auto;
     float: left;
     top: 0;
-    margin-left: 30px;
+    margin-left: 160px;
     padding: 12px 16px 12px 16px;
     border-radius: 4px;
   }
@@ -105,6 +105,21 @@ ul li.task-list{
 .correct:hover {
     background-color: lawngreen;
     color: white;
+}
+
+.editBtn {
+  position: absolute;
+  left: auto;
+  float: left;
+  top: 0;
+  margin-left: 80px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 4px;
+}
+
+.editBtn:hover {
+  background-color: darkcyan;
+  color: white;
 }
 
 .giphy-image{
@@ -165,4 +180,16 @@ table {
     padding: 5px;
     margin: 0px;
     border-radius: 4px;
+  }
+
+
+  /* Design Completed Task List */
+  .myCompletedTask{
+    background: #3399ff;
+    padding: 20px;
+  }
+
+  .myCompletedTaskList{
+    background: skyblue;;
+    padding: 20px;
   }

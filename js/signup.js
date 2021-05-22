@@ -8,9 +8,6 @@ let readUser = document.getElementById('readuser');
 
 let addUser=(e)=>{   
 
-    var keys = Object.keys(localStorage);
-    // console.log(keys);
-
     let fname = document.getElementById('fname');
     let lname =  document.getElementById('lname');
     let email = document.getElementById('email');
@@ -29,26 +26,25 @@ let addUser=(e)=>{
         }
     }
     
-        for( key of keys){
-            var data = JSON.parse(localStorage.getItem(key));
-            if(data.email===email.value){
-                alert('User Already Registered With This Email...');
-                var usedEmail = data.email;
-            }
+       
+    
+        var userEmail = JSON.parse(localStorage.getItem('email'));
+        if(userEmail===email.value){
+            alert('User Already Registered With This Email...');
+            var usedEmail = userEmail;
         }
+        
         
         if(usedEmail != email.value){
             if (password.value === copassword.value){
-                            let user = {
-                            fname: fname.value,
-                            lname: lname.value,
-                            email: email.value,
-                            mobile: mobile.value,
-                            dob: dob.value,
-                            gender: gender,
-                            password: password.value
-                        }
-                        localStorage.setItem(localStorage.length, JSON.stringify(user));
+                        
+                        localStorage.setItem('fname', JSON.stringify(fname.value));
+                        localStorage.setItem('lname', JSON.stringify(lname.value));
+                        localStorage.setItem('email', JSON.stringify(email.value));
+                        localStorage.setItem('mobile', JSON.stringify(mobile.value));
+                        localStorage.setItem('gender', JSON.stringify(gender));
+                        localStorage.setItem('dob', JSON.stringify(dob.value));
+                        localStorage.setItem('password', JSON.stringify(password.value));
                         e.preventDefault();
                         window.location = 'login.html'
             }
