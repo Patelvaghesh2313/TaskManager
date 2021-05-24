@@ -88,7 +88,7 @@ body{
 
 input[type=text], select {
     width:350px;
-    padding: 12px 110px;
+    padding: 12px 10px;
     margin: 60px 20px 0px 0px;
     margin-left: 43px;
     display: inline-block;
@@ -99,7 +99,7 @@ input[type=text], select {
 
 input[type=password], select {
     width:350px;
-    padding: 12px 110px;
+    padding: 12px 10px;
     margin: 18px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -129,14 +129,14 @@ input[type=submit] {
     margin-left: 30%;
     margin-right: 30%;
     width: auto;
-    height: 730px;
+    height: 680px;
     padding: auto;
     background-color: gray;
 }
 
 .signupContent{
     width: auto;
-    height: 670px;
+    height: 620px;
     margin: 10px;
     padding: 10px;
     font-weight: 900;

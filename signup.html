@@ -31,22 +31,22 @@
             <div class="myform">
                 <form role="form" onsubmit="addUser(event);">
                     <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required="">
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required="" pattern="[A-Za-z]{1,}" title="First name should be e.g John">
                 
                     <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required="">
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name.."  pattern="[a-zA-Z]{1,}" title="Last name should be e.g Doe" required="">
 
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" placeholder="Your Email.."  required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invaid Email Or Pattern Dsoes Not match !!!">
+                    <input type="text" id="email" name="email" placeholder="Your Email.." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="It should be e.g. abc@xyz.com" required="">
 
                     <label for="mobile">Mobile</label>
-                    <input type="text" id="mobile" name="mobile" placeholder="Your last name.."  pattern="[0-9]{10}" title="Mobile Number is Invalid !!!">
+                    <input type="text" id="mobile" name="mobile" placeholder="Your Mobile Number.."  pattern="[7-9]{1}[0-9]{9}" title="Mobile number with 7-9 and remaing 9 digit with 0-9" required="">
                     
                 
                     <label for="dob">DOB</label><br>
-                    <input type="date" id="dob" name="dob">
+                    <input type="date" id="dob" name="dob" required="">
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" id="gender_female" name="gender" value="female">
+                    <input type="radio" id="gender_female" name="gender" value="female" required="">
                     <label for="female">Female</label>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" id="gender_male" name="gender" value="male">
@@ -54,12 +54,12 @@
                 
                     <br><br><br><br>
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter Your Password.." required="" pattern="[a-zA-Z0-9!@#$%^*()]{8,}" autocomplete="on">
+                    <input type="password" id="password" name="password" placeholder="Enter Your Password.."  pattern="[a-zA-Z0-9!@#$%^*()]{8,}" title="It required max. 8 character." autocomplete="on" required="">
 
                     <label for="confirm_password">Confirm Password</label>
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Your Password.." required="" pattern="[a-zA-Z0-9!@#$%^*()]{8,}" autocomplete="on">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Your Password.."  pattern="[a-zA-Z0-9!@#$%^*()]{8,}" title="It required max. 8 character." autocomplete="on" required="">
 
-                    <button type="submit" id="adduser">Sign Up</button>
+                    <input type="submit" id="adduser" value="Sign-up"></button>
                     <!-- <button type="button" id="readuser">Read Data</button> -->
                   </form>
             </div>

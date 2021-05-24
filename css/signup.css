@@ -42,24 +42,23 @@ input[type=text], select {
     box-sizing: border-box;
   }
   
-  button[type=button] {
+  input[type=Number], select {
     width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
+    padding: 12px 20px;
     margin: 8px 0;
-    border: none;
+    display: inline-block;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
+    box-sizing: border-box;
   }
-
-  
-  button[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+ 
+  input[type=submit] {
+    width: 350px;
+    padding: 12px 110px;
+    margin: 18px 90px;
+    background-color: gray;
+    font-weight: 900;
+    color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
