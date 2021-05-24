@@ -2,23 +2,17 @@
     box-sizing: border-box;
 }
 
-.task-block{
-    width: 75%;
-    float: left;
-    padding: 15px;
-    border: 1px dotted red;
-}
 .extra-info{
-    background-color: darkgoldenrod;
-    width: 25%;
-    float: left;
+    background-color: red;
+    float: right;
     padding: 15px;
+    margin-top: 10px;
     
 }
 
 .weather-block{
-    background-color: skyblue;
-    width: 150px;
+    background-color: cyan;
+    width: 250px;
     height: 150px;
     margin: 0%;
 }
@@ -27,24 +21,10 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     padding: 5px;
-    color: darkblue;
+    color: indianred;
     font-weight: 900;
 }
 
-
-.header{
-    text-align: center;
-}
-
-input{
-    width: 70%;
-    padding: 12px;
-    margin: 0px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 
 .addBtn{
     width: 20%;
@@ -127,27 +107,7 @@ ul li.task-list{
     height: 150px;
 }
 
-table {
-    width:100%;
-  }
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 15px;
-    text-align: left;
-  }
-  #t01 tr:nth-child(even) {
-    background-color: #eee;
-  }
-  #t01 tr:nth-child(odd) {
-   background-color: #fff;
-  }
-  #t01 th {
-    background-color: black;
-    color: white;
-  }
+
 
 
   .profile{
@@ -184,12 +144,96 @@ table {
 
 
   /* Design Completed Task List */
-  .myCompletedTask{
-    background: #3399ff;
-    padding: 20px;
-  }
 
   .myCompletedTaskList{
     background: skyblue;;
     padding: 20px;
   }
+
+
+  /* Header Design */
+
+/* Inner Header Design */
+.innerHeader{
+  margin-top: 20px;
+}
+
+.innerHeader:after{
+    content: "";
+    clear: both;
+    margin: 10px;
+}
+.innerHeaderLink{
+  background-color: cornflowerblue;
+  border: none;
+  color: black;
+  margin-left: 10px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.listHeader{
+  float: left;
+}
+.leftSide{
+  width: 80%;
+}
+
+.rightSide{
+  width: 20%;
+  background-color: cornflowerblue;
+}
+.innerHeader .listHeader{
+  display: none;
+}
+
+.innerHeader div:target {
+display: block;
+}
+
+ol{
+  width: 60%;
+  background-color: cyan;
+  padding: 10px;
+  font-weight: 900;
+  font-size: 24px;
+  text-align: center;
+}
+
+.header{
+  margin: 0;
+}
+
+/* Profile Design */
+
+.userProfile{
+  background-color: antiquewhite;
+  width: 70%;
+  font-weight: 800;
+}
+
+.userDetails{
+  margin: 10px;
+}
+
+.userProfile input[type=text]{
+width:200px;
+display: inline-block;
+border: 2px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+.userProfile input[type=button]{
+width:290px;
+padding: 12px 110px;
+margin: 0px 20px 0px 0px;
+margin-left: 60px;
+display: inline-block;
+border: 2px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+background-color: coral;
+}
+

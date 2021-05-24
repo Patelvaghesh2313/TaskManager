@@ -133,28 +133,27 @@ const logout = (e)=>{
  
 const disableProfile = () =>{
 
-    document.getElementById("tfname").disabled = true;
-    document.getElementById("tlname").disabled = true;
-    document.getElementById("temail").disabled = true;
-    document.getElementById("tmobile").disabled = true;
-    document.getElementById("tbtnsave").disabled = true;
+      document.getElementById("tfname").disabled = true;
+      document.getElementById("tlname").disabled = true;
+      document.getElementById("temail").disabled = true;
+      document.getElementById("tmobile").disabled = true;
+      document.getElementById("tbtnsave").disabled = true;
 
-    var loggedUser = sessionStorage.getItem("Email");
+      var loggedUser = sessionStorage.getItem("Email");
 
     
-    var authEmail = JSON.parse(localStorage.getItem('email'));
-    var authFname = JSON.parse(localStorage.getItem('fname'));
-    var authLname = JSON.parse(localStorage.getItem('lname'));
-    var authMobile = JSON.parse(localStorage.getItem('mobile'));
-    if(authEmail===loggedUser){
-        document.getElementById("tfname").value = authFname;
-        document.getElementById("tlname").value = authLname;
-        document.getElementById("temail").value = authEmail;
-        document.getElementById("tmobile").value = authMobile;
+     var authEmail = JSON.parse(localStorage.getItem('email'));
+     var authFname = JSON.parse(localStorage.getItem('fname'));
+     var authLname = JSON.parse(localStorage.getItem('lname'));
+     var authMobile = JSON.parse(localStorage.getItem('mobile'));
+     if(authEmail===loggedUser){
+             document.getElementById("tfname").value = authFname;
+          document.getElementById("tlname").value = authLname;
+          document.getElementById("temail").value = authEmail;
+          document.getElementById("tmobile").value = authMobile;
         
-        //alert(`User Already Registered With This Email...${usedEmail} and ${userFname}`);
-    }
-    
+         alert(`User Already Registered With This Email...${usedEmail} and ${userFname}`);
+      }  
 }
 
 
