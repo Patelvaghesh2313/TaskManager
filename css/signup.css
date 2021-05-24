@@ -11,14 +11,6 @@ h3{
     text-align: center;
 }
 
-.myform{
-    background-color: lightgrey;
-    width: auto;
-    padding: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
 
 input[type=text], select {
     width: 100%;
@@ -37,6 +29,7 @@ input[type=text], select {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
+    float: left;
     box-sizing: border-box;
   }
   input[type=password], select {

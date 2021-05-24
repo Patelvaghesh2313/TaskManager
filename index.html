@@ -7,77 +7,47 @@
 
     <!-- Add Logo On title bar -->
     <link rel="icon" href="/images/download.jpg" type="image/icon type">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+    
+    <!-- style css -->
+    <link href="css/style.css" rel="stylesheet">
     <title>Home</title>
   </head>
   <body>    
-    <div class="row">
-            <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light nav-pills">
-                <img src="/images/download.jpg" style="width: 50px; height: 50px; border-radius: 13px;"> 
-                <div class="col-md-10">
-                    <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">Home</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    </div> 
-                </div>
-                <div class="col-md-2">
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="signup.html">SignUp</a>
-                        </li>
-                    </ul>
-                  </div>
-                </div>  
-            </div>   
-            </nav>
-    </div>
-   
-        
-    <p style="font-family: 'Times New Roman', Times, serif;font-size: 24px;"><b>Hello User</b>, Warm Wel Come...</p>
-    <br>
-    <hr>
-    <div>
-      <ol>
-        
-        <h4>Key Features Of App:</h4><br>
-        
-        <li>You can <b> ADD,REMOVE,EDIT and VIEW</b> your task list.</li>
-        <li>You can also do changes in your <b>profile</b>.</li>
-        <li>You can also do changes in your <b>password</b>.</li>
-        <li>You can watch <b>Current weather</b> of your location.</li>
-      </ol>
-    </div>
-    <hr>
-    <div>
-      <ol>
-        
-        <h4>Road Map To Use Application Easily:</h4><br>
-        
-        <li>If you do not registered your self on this web applicaion then go for <b>sign-up</b>.</li>
-        <li>If you are registered user then go for<b> login</b>.</li>
-        <li>To update your profile you should go in <b>Edit Profile</b> section (after login).</li>
-        <li>To do changes in your current password you should go in <b>change password</b> section (after login).</li>
-      </ol>
-    </div>
-
     
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    -->
+    <div class="myNavigationHeader">
+      <div class="myNavigation">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign-up</a>
+      </div>
+    </div>  
+    
+    
+    <div class="startdiv">
+      <div class="welcomediv">
+        <p><b>Welcome</b></p>  
+      </div>
+    </div>
+    <hr>
+    <div class="maindiv">
+      <div class="firstdiv left">
+        <h2><b>Key Features Of App:</b></h2>
+        <ol>          
+          <li>You can <b> ADD,REMOVE,EDIT and VIEW</b> your task list.</li>
+          <li>You can also do changes in your <b>profile</b>.</li>
+          <li>You can also do changes in your <b>password</b>.</li>
+          <li>You can watch <b>Current weather</b> of your location.</li>
+        </ol> 
+      </div>
+      <div class="firstdiv right">
+        <h2><b>Road Map To Use Application Easily:</b></h2>
+        <ol>         
+          <li>If you do not registered your self on this web applicaion then go for <b>sign-up</b>.</li>
+          <li>If you are registered user then go for<b> login</b>.</li>
+          <li>To update your profile you should go in <b>Edit Profile</b> section (after login).</li>
+          <li>To do changes in your current password you should go in <b>change password</b> section (after login).</li>
+        </ol>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,145 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+/* Navigation Bar Design Part */
+
+.myNavigationHeader{
+    background-color: coral;
+}
+.myNavigation{
+    background-color: rgb(128, 128, 128);
+    color: black;
+    font-weight: 900;
+    padding: 20px;
+    border-radius: 40px ;
+}
+
+.myNavigation a{
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.myNavigation a:hover{
+    background-color: coral;
+    padding: 20px;
+}
+
+
+/* Index.html div tags design */
+.welcomediv{
+    padding: 20px;
+    margin: 20px;
+    background-color: coral;
+}
+
+.welcomediv p{
+    text-align: center;
+    font-size: 35px;
+}
+
+.firstdiv{
+    padding: 20px;
+    float: left;
+    background-color: coral;
+}
+
+.left{
+    width: 45%;
+}
+ .right{
+    width: 55%;
+}
+
+.maindiv:after{
+    content: "";
+    clear: both;
+    margin: 10px;
+}
+
+
+/* Login Page Design */
+
+
+.mainLoginDiv{
+    margin-left: 30%;
+    margin-right: 30%;
+    width: auto;
+    height: 370px;
+    padding: auto;
+    background-color: gray;
+}
+
+.loginContent{
+    width: auto;
+    height: 300px;
+    margin: 10px;
+    padding: 10px;
+    font-weight: 900;
+    background-color: coral;
+}
+
+input[type=text], select {
+    width:350px;
+    padding: 12px 110px;
+    margin: 60px 20px 0px 0px;
+    margin-left: 43px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width:350px;
+    padding: 12px 110px;
+    margin: 18px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 350px;
+    padding: 12px 110px;
+    margin: 18px 90px;
+    background-color: gray;
+    font-weight: 900;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  /* Signup Design */
+
+  .mainSignupDiv{
+    margin-left: 30%;
+    margin-right: 30%;
+    width: auto;
+    height: 730px;
+    padding: auto;
+    background-color: gray;
+}
+
+.signupContent{
+    width: auto;
+    height: 670px;
+    margin: 10px;
+    padding: 10px;
+    font-weight: 900;
+    background-color: coral;
+}
+  
