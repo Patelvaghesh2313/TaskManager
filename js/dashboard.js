@@ -13,7 +13,7 @@ const coordinates= ()=>{
             const lng = myLoc.coords.longitude;
             console.log(lat, lng);
 
-            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=d2c1859fc72f6df2662dd532105ac751`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=d2c1859fc72f6df2662dd532105ac751`)
                 .then(response=>response.json())
                 .then(data =>{
                      city = data['name'];
