@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
      <!-- Local Css Files -->
+     <link href="css/style.css" rel="stylesheet">
      <link href="css/dashboard.css" rel="stylesheet">
     <!-- Add Logo On title bar -->
     <link rel="icon" href="/images/download.jpg" type="image/icon type">
@@ -17,151 +18,103 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Home</title>
   </head>
-  <body onload="coordinates();">    
-    <div class="row">
-        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-            <img src="/images/download.jpg" style="width: 50px; height: 50px; border-radius: 13px;"> 
-                <div class="container-fluid">
-                
-                    <a class="navbar-brand" href="dashboard.html">Home</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        
-                            <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="userEmail" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#" onclick="logout(event);">Logout</a></li>
-                            </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>   
-          </nav>
-    </div>
+  <body onload="coordinates();"> 
     
-    <div class="task-block">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#addtask" type="button" role="tab" aria-controls="home" aria-selected="true">Add Task</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#completed" type="button" role="tab" aria-controls="profile" aria-selected="false">Completed tasks </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" onclick="disableProfile();" data-bs-toggle="tab" data-bs-target="#editprofile" type="button" role="tab" aria-controls="profile" aria-selected="false">Edit Profile</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#changepassword" type="button" role="tab" aria-controls="profile" aria-selected="false">Change Password</button>
-        </li>
-       
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="addtask" role="tabpanel" aria-labelledby="home-tab">
-          <ol id="" class="myCompletedTask">
-            Add Task Here
-          </ol>
-            <div id="myDIV" class="header">
-              <h2 style="margin:5px">My Tasks</h2>
-              <input type="text" id="myInputTask" placeholder="Title...">
-              <button type="button" onclick="addTask()" class="addBtn">Add</span>
-            </div>
+    <div class="myNavigationHeader">
+      <div class="myNavigation">
+        <a href="dashboard.html">Home</a>
+        <a href="#" onclick="logout(event);">Logout</a>
+        <a href="#" id="userEmail"></a>
+      </div>
+    </div>  
 
-            <ul id="myULTask">
-              <!-- List Of Task -->
-            </ul>
-      </div>
-      <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="completed-tasks">
-          <ol id="" class="myCompletedTask">
-            Completed task list
-            <hr>
-            
-          </ol>
-          <ol id="myCompletedTask" class="myCompletedTaskList">
-          
-            
-          </ol>
+    <div class="innerHeader">
+        
+          <a class="innerHeaderLink" href="#addTask">Add Tasks</a>     
+          <a class="innerHeaderLink" href="#completedTask">Completed Tasks</a>          
+          <a class="innerHeaderLink" href="#editProfile" onclick="disableProfile();">Edit Profile</a>
+          <a class="innerHeaderLink" href="#changePassword" >Change Password</a>
+          <a class="innerHeaderLink" id="time" style="background-color: coral;" ></a>
 
-        </div>
-      </div>
-      <div class="tab-pane fade" id="editprofile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="completed-tasks">
-          <ol id="myCompletedTask" class="myCompletedTask">
-            Edit Profile
-          </ol>
-            <table id="t01">
-              <tr>
-                <td>FirstName</td>
-                <td><input id="tfname" class="profile" type="text"></td>
-                <td>LastName</td>
-                <td><input  id="tlname" class="profile" type="text"></td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td><input id="temail" class="profile" type="text"></td>
-                <td>Mobile</td>
-                <td><input id="tmobile" class="profile" type="text"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td id="tbtnsave"><input type="button" onclick="updateProfile();" class="saveBtn" value="Save Changes"></button></td>
-                <td></td>
-                <td><button type="button" onclick="enableProfile();" class="profileBtn">Enable Edit</span></td>
-              </tr>
-              
-            </table>
-            
-            <br>
-            
-        </div>
-      </div>
+        
       
-      <div class="tab-pane fade" id="changepassword" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="completed-tasks">
-          <ol id="myCompletedTask" class="myCompletedTask">
-            Change Password
-          </ol>
-            <table id="t01">
-              <tr>
-                <td>Current Password</td>
-                <td><input id="currentpassword" class="profile" type="text"></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>New Password *</td>
-                <td><input id="newpassord" class="profile" type="text"></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Confirm New Password *</td>
-                <td><input id="cnewpassword" class="profile" type="text"></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td id="tbtnsave"><input type="button" onclick="changePassword();" class="saveBtn" value="Save Changes"></button></td>
-                <td></td>
-                <td></td>
-              </tr>
-              
-            </table>
-            
-            <br>
-            
-        </div>
-      </div>
+          <!-- ADD TASK SECTION -->
+          <div id="addTask" class="listHeader leftSide">
+            <ol>
+              Add Task Here
+            </ol>
+              <div id="myDIV" class="header">
+                <input type="text" id="myInputTask" placeholder="Title...">
+                <button type="button" onclick="addTask();" class="addBtn">Add</span>
+              </div>
+    
+              <ul id="myULTask">
+                <!-- List Of Task -->
+              </ul>
+          </div>
 
-      </div>
+          <!-- COMPLETED TASK SECTION -->
+          <div id="completedTask" class="listHeader leftSide">
+            <ol id="" class="myCompletedTask">
+              Completed task list
+              <hr>
+              
+            </ol>
+            <ol id="myCompletedTask" class="myCompletedTaskList">
+            
+              
+            </ol>
+          </div>
+
+          <!-- EDIT PROFILE SECTION -->
+          <div id="editProfile" class="listHeader leftSide">
+            <ol id="" class="myCompletedTask">
+              Edit Profile
+            </ol>
+            <div class="userProfile">
+              <hr>
+              <label class="userDetails">FirstName</label>
+              <input  id="tfname" class="profile" type="text">
+              <label class="userDetails">LastName</label>
+              <input  id="tlname" class="profile" type="text">
+              <br><hr>
+              <label class="userDetails">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input  id="temail" class="profile" type="text">
+              <label class="userDetails">Mobile</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input id="tmobile" class="profile" type="text">
+              <br><hr>
+              <input  id="tbtnsave" onclick="updateProfile();" class="profile" type="button" value="Save Changes">
+              <input  id="" onclick="enableProfile();" class="profile" type="button" value="Enable Edit">
+              <br><hr>
+            </div>
+          </div>
+
+          <!-- Change Password -->
+          <div id="changePassword" class="listHeader leftSide ">
+            <ol id="" class="myCompletedTask">
+              Change Password
+            </ol>
+            <div class="userProfile">
+              <hr>
+              <label class="userDetails">Current Password</label>
+              <input id="currentpassword" class="profile" type="text">
+              <hr>
+              <label class="userDetails">New Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input id="newpassord" class="profile" type="text">
+              <hr>
+              <label class="userDetails">Confirm Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input id="cnewpassword" class="profile" type="text">
+              <hr>
+              <input id="" type="button" onclick="changePassword();" class="saveBtn" value="Save Changes">
+              <br><hr>
+            </div>
+          </div>
+
     </div>
-    <div class="extra-info">
+   
+  
+    
+    <div class="extra-info listHeader rightSide">
       <div class="weather-header"><h4>Weather Data</h4></div>
        <div class="row">
          <div class="weather-block">
