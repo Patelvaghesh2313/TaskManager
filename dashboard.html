@@ -30,8 +30,8 @@
 
     <div class="innerHeader">
         
-          <a class="innerHeaderLink" href="#addTask">Add Tasks</a>     
-          <a class="innerHeaderLink" href="#completedTask">Completed Tasks</a>          
+          <a class="innerHeaderLink" href="#addTask" onclick="showTasks()">Add Tasks</a>     
+          <a class="innerHeaderLink" href="#completedTask" onclick="showCompletedTasks()">Completed Tasks</a>          
           <a class="innerHeaderLink" href="#editProfile" onclick="disableProfile()">Edit Profile</a>
           <a class="innerHeaderLink" href="#changePassword" >Change Password</a>
           
@@ -50,6 +50,7 @@
               </div>
               
               <div class="header">
+                <input type="hidden" id="index">
                 <table id="myTable">
 
                 </table>
@@ -68,10 +69,13 @@
               <hr>
               
             </ol>
-            <ol id="myCompletedTask" class="myCompletedTaskList">
+            <table id="myCompletedTask">
+              
+            </table>
+            <!-- <ol id="myCompletedTask" class="myCompletedTaskList">
             
               
-            </ol>
+            </ol> -->
           </div>
 
           <!-- EDIT PROFILE SECTION -->

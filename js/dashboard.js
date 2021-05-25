@@ -68,7 +68,7 @@ const addTask =()=>{
                     localStorage.setItem(`${key}`, JSON.stringify(userData));
                     showTasks();
                 }
-               
+                
                     
              }
          }
@@ -88,8 +88,8 @@ const showTasks = () =>{
                             `<tr>
                                 <td><input id="taskListInput" disabled="true" value="${data}"></td>
                             <td><button class="editBtn" onclick="editTask(${index})">Edit</button></td>
-                            <td><button class="completeBtn">Complete</button></td>
-                            <td><button class="removeBtn">Remove</button></td>
+                            <td><button class="completeBtn" onclick="completeTask(${index})">Complete</button></td>
+                            <td><button class="removeBtn" onclick="removeTask(${index})">Remove</button></td>
                             
                             </tr>`;
                             //    alert(data)
@@ -106,25 +106,92 @@ const editTask = (e) =>{
     for(key of keys){
         var userData = JSON.parse(localStorage.getItem(key));
         
-        let editInputField = document.getElementById("editInput");
-
+        var editInputField = document.getElementById("editInput");
+        var myIndex = document.getElementById("index");
         if(authUser === userData.email){
+            myIndex.value = e;
             editInputField.value = userData.task[e];
+            alert(editInputField.value)
         }
     }
     changeBtn.addEventListener("click",()=>{
-        
         for(key of keys){
+            let newIndex = document.getElementById("index").value;
             var userData = JSON.parse(localStorage.getItem(key));    
-            var editInputField = document.getElementById("editInput");
+            // var editInputField = document.getElementById("editInput");
             if(authUser === userData.email){
-                userData.task[e]=editInputField.value;
-                localStorage.setItem(`${key}`, JSON.stringify(userData))
+                userData.task[newIndex]=editInputField.value;
+                localStorage.setItem(`${key}`, JSON.stringify(userData));
             }
+            
+            
         }
         editInputField.value = "";
         showTasks();
     });
+}
+
+
+const completeTask = (e)=>{
+    //alert(e);
+    for(key of keys){
+        var userData = JSON.parse(localStorage.getItem(key));
+        
+        if(authUser === userData.email){
+            userData.completetask.push(userData.task[e]);
+            userData.task.splice(e,1);
+            localStorage.setItem(`${key}`, JSON.stringify(userData));
+            showTasks();
+        }
+    }
+}
+
+const showCompletedTasks = ()=>{
+    for(key of keys){
+        var userData = JSON.parse(localStorage.getItem(key));
+        
+        if(authUser === userData.email){
+            //alert(userData.completetask)
+            var completeTable= document.getElementById("myCompletedTask");
+            var myListTasks = "";
+            userData.completetask.forEach((tasks,taskNumber) => {      
+                myListTasks += 
+                `<tr>
+                <td>${taskNumber}</td>
+                <td>${tasks}</td>
+                <td><button class="removeBtn" onclick="removeCompleteTask(${taskNumber});">Remove</button></td>
+                </tr>`;
+                //    alert(data)
+            
+                });
+                completeTable.innerHTML = myListTasks
+                // alert(userData.task.length);
+            }
+        }
+}
+
+const removeTask = (e)=>{
+    for(key of keys){
+        var userData = JSON.parse(localStorage.getItem(key));
+        
+        if(authUser === userData.email){
+            userData.task.splice(e,1);
+            localStorage.setItem(`${key}`, JSON.stringify(userData));
+            showTasks();
+            }
+        }
+}
+
+const removeCompleteTask = (e)=>{
+    for(key of keys){
+        var userData = JSON.parse(localStorage.getItem(key));
+        
+        if(authUser === userData.email){
+            userData.completetask.splice(e,1);
+            localStorage.setItem(`${key}`, JSON.stringify(userData));
+            showCompletedTasks();
+            }
+        }
 }
 
 
@@ -145,10 +212,11 @@ const disableProfile = () =>{
 
       var loggedUser = sessionStorage.getItem("Email");
 
+    
     for (key of keys){
 
         var userData = JSON.parse(localStorage.getItem(key));
-
+        
         if(loggedUser===userData.email){
             document.getElementById("tfname").value = userData.firstName;
             document.getElementById("tlname").value = userData.lastName;
@@ -187,26 +255,35 @@ const updateProfile = () =>{
 
     var loggedUser = sessionStorage.getItem("Email");
 
+    
 
     for (key of keys){
-
+        let allEmail =[];
         var userData = JSON.parse(localStorage.getItem(key));
+        
+        if(loggedUser === userData.email){
 
-        if(loggedUser===userData.email){   
-            if(pfname!="" && plname!=""){
-                let user = {
-                    firstName : pfname.value,
-                    lastName : plname.value,
-                    email : pemail.value,
-                    mobile : pmobile.value,
-                    gender : userData.gender,
-                    dob : userData.dob,
-                    password : userData.password,
-                    task : userData.task,
-                    completetask : userData.completeTask
+        }
+        else{
+            allEmail.push(userData.email);
+        }
+        
+        //alert(allEmail);
+        if(loggedUser === userData.email){   
+            alert(pfname.value)
+            if(pfname.value!="" && plname.value!="" ){
+                userData.firstName = pfname.value;
+                userData.lastName = plname.value;
+                userData.mobile = pmobile.value;
+                userData.email = pemail.value;
+                if(allEmail.includes(userData.email)){
+                    alert('Email-id is already used !!!')
+                }
+                else{
+                    userData.email = pemail.value;
                 }
                 sessionStorage.setItem('Email',pemail.value);
-                localStorage.setItem(`${key}`, JSON.stringify(user));
+                localStorage.setItem(`${key}`, JSON.stringify(userData));
             }
             else{
                 alert("Blank input is not accepted!!!");
