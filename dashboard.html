@@ -18,13 +18,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Home</title>
   </head>
-  <body onload="coordinates();"> 
+  <body onload="coordinates()"> 
     
     <div class="myNavigationHeader">
       <div class="myNavigation">
         <a href="dashboard.html">Home</a>
-        <a href="#" onclick="logout(event);">Logout</a>
-        <a href="#" id="userEmail"></a>
+        <a href="#" onclick="logout(event)">Logout</a>
+        <!-- <a class="innerHeaderLink" id="userEmail" style="background-color: lightblue;"></a> -->
       </div>
     </div>  
 
@@ -32,9 +32,10 @@
         
           <a class="innerHeaderLink" href="#addTask">Add Tasks</a>     
           <a class="innerHeaderLink" href="#completedTask">Completed Tasks</a>          
-          <a class="innerHeaderLink" href="#editProfile" onclick="disableProfile();">Edit Profile</a>
+          <a class="innerHeaderLink" href="#editProfile" onclick="disableProfile()">Edit Profile</a>
           <a class="innerHeaderLink" href="#changePassword" >Change Password</a>
-          <a class="innerHeaderLink" id="time" style="background-color: coral;" ></a>
+          
+          <a class="innerHeaderLink" id="userEmail" style="background-color: skyblue;"></a>
 
         
       
@@ -45,12 +46,19 @@
             </ol>
               <div id="myDIV" class="header">
                 <input type="text" id="myInputTask" placeholder="Title...">
-                <button type="button" onclick="addTask();" class="addBtn">Add</span>
+                <button type="button" onclick="addTask()" class="addBtn"> Add </button>
               </div>
-    
-              <ul id="myULTask">
-                <!-- List Of Task -->
-              </ul>
+              
+              <div class="header">
+                <table id="myTable">
+
+                </table>
+              </div>
+
+              <div class="header">
+                <input type="text" id="editInput">
+                <button type="button" id="changeBtn" class="addBtn"> Change </button>
+              </div>
           </div>
 
           <!-- COMPLETED TASK SECTION -->
@@ -83,8 +91,8 @@
               <label class="userDetails">Mobile</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input id="tmobile" class="profile" type="text">
               <br><hr>
-              <input  id="tbtnsave" onclick="updateProfile();" class="profile" type="button" value="Save Changes">
-              <input  id="" onclick="enableProfile();" class="profile" type="button" value="Enable Edit">
+              <input  id="tbtnsave" onclick="updateProfile()" class="profile" type="button" value="Save Changes">
+              <input  id="" onclick="enableProfile()" class="profile" type="button" value="Enable Edit">
               <br><hr>
             </div>
           </div>
@@ -115,15 +123,17 @@
   
     
     <div class="extra-info listHeader rightSide">
+      <a class="innerHeaderLink" id="date" style="background-color: coral;" ></a>
+      <a class="innerHeaderLink" id="time" style="background-color: coral;" ></a>
       <div class="weather-header"><h4>Weather Data</h4></div>
        <div class="row">
          <div class="weather-block">
            <div class="weather-data">
              <ul>
-               <li>City: <span id="city"></span> </li>
-               <li>Temprature: <span  id="temprature"></span></li>
-               <li>Weather: <span  id="weather"></span> </li>
-               <li>Current Time: <span id="time"></span> </li>
+              <li><a class="innerHeaderLink"><span id="city"></span></a></li><br>
+              <li><a class="innerHeaderLink"><span  id="temprature"></span> C</a></li><br>
+              <li><a class="innerHeaderLink"><span  id="weather"></span></a></li>
+                
              </ul>
            </div>
          </div>

@@ -55,53 +55,6 @@ ul li.task-list{
     user-select: none;
 }
 
-
-.close {
-    position: absolute;
-    left: auto;
-    float: left;
-    top: 0;
-    margin-left: 220px;
-    padding: 12px 16px 12px 16px;
-    border-radius: 4px;
-  }
-  
-.close:hover {
-    background-color: #f44336;
-    color: white;
-}
-
-
-.correct {
-    position: absolute;
-    left: auto;
-    float: left;
-    top: 0;
-    margin-left: 160px;
-    padding: 12px 16px 12px 16px;
-    border-radius: 4px;
-  }
-  
-.correct:hover {
-    background-color: lawngreen;
-    color: white;
-}
-
-.editBtn {
-  position: absolute;
-  left: auto;
-  float: left;
-  top: 0;
-  margin-left: 80px;
-  padding: 12px 16px 12px 16px;
-  border-radius: 4px;
-}
-
-.editBtn:hover {
-  background-color: darkcyan;
-  color: white;
-}
-
 .giphy-image{
     width: 150px;
     height: 150px;
@@ -237,3 +190,77 @@ box-sizing: border-box;
 background-color: coral;
 }
 
+
+/* View Task Design */
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin: 40px;
+  width: 55%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+button{
+  border: none;
+  color: black;
+  margin-left: 10px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+button[type=edit]{
+  background-color: cornflowerblue;
+}
+
+
+
+
+.editBtn{
+  background-color: cornflowerblue;
+  border: none;
+  color: black;
+  margin-left: 10px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.editBtn:hover{
+  background-color: blue;
+}
+
+.completeBtn{
+  background-color: lawngreen;
+  border: none;
+  color: black;
+  margin-left: 10px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.completeBtn:hover{
+  background-color: green;
+}
+
+.removeBtn{
+  background-color: tomato;
+  border: none;
+  color: black;
+  margin-left: 10px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.removeBtn:hover{
+  background-color: red;
+}

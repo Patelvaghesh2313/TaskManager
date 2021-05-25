@@ -1,5 +1,6 @@
 
 // ADD NEW USER IN LOCAL STORAGE
+var keys = Object.keys(localStorage);
 
 console.log('Welcome On Signup Page');
 
@@ -27,24 +28,34 @@ let addUser=(e)=>{
     }
     
        
-    
-        var userEmail = JSON.parse(localStorage.getItem('email'));
-        if(userEmail===email.value){
-            alert('User Already Registered With This Email...');
-            var usedEmail = userEmail;
+        let task =[]
+        let completeTask=[]
+        for( key of keys){
+            var userData = JSON.parse(localStorage.getItem(key));
+            if(email.value === userData.email || mobile.value === userData.mobile){
+                alert('User Already Registered With This Email or Mobile...');
+                var usedEmail = userData.email;
+                var usedMobile = userData.mobile;
+            }
         }
         
+        let d1 = new Date();
         
-        if(usedEmail != email.value){
+        if(usedEmail != email.value && usedMobile != mobile.value){
             if (password.value === copassword.value){
                         
-                        localStorage.setItem('fname', JSON.stringify(fname.value));
-                        localStorage.setItem('lname', JSON.stringify(lname.value));
-                        localStorage.setItem('email', JSON.stringify(email.value));
-                        localStorage.setItem('mobile', JSON.stringify(mobile.value));
-                        localStorage.setItem('gender', JSON.stringify(gender));
-                        localStorage.setItem('dob', JSON.stringify(dob.value));
-                        localStorage.setItem('password', JSON.stringify(password.value));
+                        let user = {
+                            firstName : fname.value,
+                            lastName : lname.value,
+                            email : email.value,
+                            mobile : mobile.value,
+                            gender : gender,
+                            dob : dob.value,
+                            password : password.value,
+                            task : task,
+                            completetask : completeTask
+                        }
+                        localStorage.setItem(`user${localStorage.length}`, JSON.stringify(user));
                         e.preventDefault();
                         window.location = 'login.html'
             }

@@ -1,11 +1,16 @@
+var keys = Object.keys(localStorage);
+var authUser = sessionStorage.getItem('Email');
+
 const coordinates= ()=>{
     
     let cityName = document.getElementById("city");
     let temprature = document.getElementById("temprature");
     let liveWeather = document.getElementById("weather");
     let currentTime = document.getElementById("time");
+    let todayDate = document.getElementById("date");
 
-    var d = new Date(new Date().getTime()).toLocaleTimeString();
+    var dtime = new Date(new Date().getTime()).toLocaleTimeString();
+    var ddate = new Date().toLocaleDateString();
 
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition((myLoc)=>{
@@ -19,13 +24,13 @@ const coordinates= ()=>{
                      city = data['name'];
                      temp = data['main']['temp'];
                      weather = data['weather'][0]['description'];
-                     time = d;
+                    //  time = dtime;
 
                      cityName.innerHTML = city;
-                     temprature.innerHTML = temp;
+                     temprature.innerHTML = temp - 273.15;
                      liveWeather.innerHTML = weather;
-                     currentTime.innerHTML = time;
-
+                     currentTime.innerHTML = dtime;
+                     todayDate.innerHTML = ddate
 
                 });
         });
@@ -47,80 +52,79 @@ const coordinates= ()=>{
 
 
 const addTask =()=>{
-     var li = document.createElement("li");
-     var inputTask = document.getElementById("myInputTask").value;
-     var myNewTask = document.createTextNode(inputTask);
-
-    li.appendChild(myNewTask);
-    if (inputTask === ''){
-        alert("Please Enter Anything !!!")
-    } else{
-        document.getElementById('myULTask').appendChild(li);
-    }
-    document.getElementById("myInputTask").value = "";
-    li.className = "task-list";
     
+    // Add task code
+        var inputTask = document.getElementById("myInputTask").value;
+        for(key of keys){
+            var userData = JSON.parse(localStorage.getItem(key));
+            
+            if(authUser === userData.email){
+                if(inputTask === ""){
+                    alert("Please Enter Anything !!!");
+                }
+                else{
+                    // document.getElementById("taskListInput").disabled = true;
+                    userData.task.push(inputTask)
+                    localStorage.setItem(`${key}`, JSON.stringify(userData));
+                    showTasks();
+                }
+               
+                    
+             }
+         }
 
-    var mywholeList = document.getElementsByClassName("task-list");
-    for (var i=0; i< mywholeList.length; i++)
-    {
-        var closeBox = document.createElement("BUTTON");
-        var symbol = document.createTextNode("\u00D7");
+}
+const showTasks = () =>{
+    for(key of keys){
+        var userData = JSON.parse(localStorage.getItem(key));
+        
+        if(authUser === userData.email){
+            document.getElementById("myInputTask").value =""
+                            var taskList = document.getElementById("myTable");
+                            var myListItems = "";
+                            userData.task.forEach((data,index) => {
+                                
+                            myListItems += 
+                            `<tr>
+                                <td><input id="taskListInput" disabled="true" value="${data}"></td>
+                            <td><button class="editBtn" onclick="editTask(${index})">Edit</button></td>
+                            <td><button class="completeBtn">Complete</button></td>
+                            <td><button class="removeBtn">Remove</button></td>
+                            
+                            </tr>`;
+                            //    alert(data)
+                        
+                            });
+                            
+                            taskList.innerHTML = myListItems
+                            // alert(userData.task.length);
+                        }
+                    }    
+}
 
-        var correctBox = document.createElement("BUTTON");
-        var correctSymbol = document.createTextNode("\u2713");
+const editTask = (e) =>{
+    for(key of keys){
+        var userData = JSON.parse(localStorage.getItem(key));
+        
+        let editInputField = document.getElementById("editInput");
 
-        var editBox = document.createElement("BUTTON");
-        var editText = document.createTextNode("Edit");
-
-        closeBox.className="close";
-        closeBox.appendChild(symbol);
-
-        correctBox.className="correct";
-        correctBox.appendChild(correctSymbol);
-
-        editBox.className="editBtn";
-        editBox.appendChild(editText);
-
-        mywholeList[i].appendChild(correctBox);
-        mywholeList[i].appendChild(closeBox);
-        mywholeList[i].appendChild(editBox);
-    }
-    
-
-    // Click on a close button to hide the current list item
-    var close = document.getElementsByClassName("close");
-    for (var i = 0; i < close.length; i++) {
-    close[i].onclick = function(){
-        var div = this.parentElement;
-        div.style.display = 'none';
-    }
-    }
-
-    var complete = document.getElementsByClassName("correct");
-    for(var j=0; j < complete.length; j++){
-     complete[j].onclick = function(){
-        var completedTask = this.parentElement; // to get parentelent object
-        // alert(completedTask.childNodes[0].textContent);
-        var myList = document.createElement("li");
-        var mycompletedTask = document.createTextNode(completedTask.childNodes[0].textContent); // to get only parent element's content
-        myList.appendChild(mycompletedTask)
-        document.getElementById('myCompletedTask').appendChild(myList);
-        completedTask.style.display = 'none';
-    }
-    }
-
-    var editTextContent = document.getElementsByClassName("editBtn");
-    for(var k=0; k<editTextContent.length; k++)
-    {
-        editTextContent[k].onclick = function(){
-            var editTask = this.parentElement;
-            // alert(this.parentElement.childNodes[0].textContent);
-
-            document.getElementById("myInputTask").value = editTask.childNodes[0].textContent;  // selected task put inside input field
-            editTask.style.display = 'none';
+        if(authUser === userData.email){
+            editInputField.value = userData.task[e];
         }
     }
+    changeBtn.addEventListener("click",()=>{
+        
+        for(key of keys){
+            var userData = JSON.parse(localStorage.getItem(key));    
+            var editInputField = document.getElementById("editInput");
+            if(authUser === userData.email){
+                userData.task[e]=editInputField.value;
+                localStorage.setItem(`${key}`, JSON.stringify(userData))
+            }
+        }
+        editInputField.value = "";
+        showTasks();
+    });
 }
 
 
@@ -141,19 +145,28 @@ const disableProfile = () =>{
 
       var loggedUser = sessionStorage.getItem("Email");
 
+    for (key of keys){
+
+        var userData = JSON.parse(localStorage.getItem(key));
+
+        if(loggedUser===userData.email){
+            document.getElementById("tfname").value = userData.firstName;
+            document.getElementById("tlname").value = userData.lastName;
+            document.getElementById("temail").value = userData.email;
+            document.getElementById("tmobile").value = userData.mobile;
+        }
+    }
+
     
-     var authEmail = JSON.parse(localStorage.getItem('email'));
-     var authFname = JSON.parse(localStorage.getItem('fname'));
-     var authLname = JSON.parse(localStorage.getItem('lname'));
-     var authMobile = JSON.parse(localStorage.getItem('mobile'));
-     if(authEmail===loggedUser){
-             document.getElementById("tfname").value = authFname;
-          document.getElementById("tlname").value = authLname;
-          document.getElementById("temail").value = authEmail;
-          document.getElementById("tmobile").value = authMobile;
+    //  var authEmail = JSON.parse(localStorage.getItem('email'));
+    //  var authFname = JSON.parse(localStorage.getItem('fname'));
+    //  var authLname = JSON.parse(localStorage.getItem('lname'));
+    //  var authMobile = JSON.parse(localStorage.getItem('mobile'));
+    //  if(authEmail===loggedUser){
+            
         
-         alert(`User Already Registered With This Email...${usedEmail} and ${userFname}`);
-      }  
+    //      alert(`User Already Registered With This Email...${usedEmail} and ${userFname}`);
+    //   }  
 }
 
 
@@ -172,23 +185,36 @@ const updateProfile = () =>{
     let pemail = document.getElementById('temail');
     let pmobile = document.getElementById('tmobile');
 
-    var authUser = sessionStorage.getItem("Email");
+    var loggedUser = sessionStorage.getItem("Email");
 
 
-    var authEmail = JSON.parse(localStorage.getItem('email'));
-    
-    if(authEmail===authUser){
-    
-        localStorage.setItem('fname', JSON.stringify(pfname.value));
-        localStorage.setItem('lname', JSON.stringify(plname.value));
-        localStorage.setItem('email', JSON.stringify(pemail.value));
-        localStorage.setItem('mobile', JSON.stringify(pmobile.value));
-       
-        sessionStorage.setItem('Email',pemail.value);
+    for (key of keys){
 
+        var userData = JSON.parse(localStorage.getItem(key));
+
+        if(loggedUser===userData.email){   
+            if(pfname!="" && plname!=""){
+                let user = {
+                    firstName : pfname.value,
+                    lastName : plname.value,
+                    email : pemail.value,
+                    mobile : pmobile.value,
+                    gender : userData.gender,
+                    dob : userData.dob,
+                    password : userData.password,
+                    task : userData.task,
+                    completetask : userData.completeTask
+                }
+                sessionStorage.setItem('Email',pemail.value);
+                localStorage.setItem(`${key}`, JSON.stringify(user));
+            }
+            else{
+                alert("Blank input is not accepted!!!");
+            }                 
+        }
         // Session User Authentication
         var userEmail = sessionStorage.getItem("Email");
-
+        
         if(userEmail === null){
             alert("Authentication Problem");
             window.location = 'login.html'
@@ -196,8 +222,9 @@ const updateProfile = () =>{
         else{
             document.getElementById("userEmail").innerHTML = userEmail;
         }
-        
     }
+    // var authEmail = JSON.parse(localStorage.getItem('email'));
+    
     
 
 }
@@ -210,31 +237,34 @@ const changePassword = () =>{
     let confirm_new_password = document.getElementById('cnewpassword');
     
 
-    var authUser = sessionStorage.getItem("Email");
-    var authPassword  = sessionStorage.getItem("Password");
+    for (key of keys){
 
-    var authEmail = JSON.parse(localStorage.getItem('email'));
-    
-    if(authUser===authEmail){
-        if(authPassword===current_password.value && new_password.value===confirm_new_password.value){
-            
-            localStorage.setItem('password', JSON.stringify(new_password.value));
-            sessionStorage.setItem('Password',new_password.value);
-            alert(`${authUser}'s password has updated...`)
-            document.getElementById('currentpassword').value = "";
-            document.getElementById('newpassord').value = "";
-            document.getElementById('cnewpassword').value = "";
+        var userData = JSON.parse(localStorage.getItem(key));
+        var authPassword  = sessionStorage.getItem("Password");
+        var authUser = sessionStorage.getItem("Email");
 
+        if(authUser===userData.email){   
+            if(authPassword===current_password.value && new_password.value===confirm_new_password.value){
+                let user = {
+                    firstName : userData.firstName,
+                    lastName : userData.lastName,
+                    email : userData.email,
+                    mobile : userData.mobile,
+                    gender : userData.gender,
+                    dob : userData.dob,
+                    password : new_password.value,
+                    task : userData.task,
+                    completetask : userData.completeTask
+                }
+                sessionStorage.setItem('Password',new_password.value);
+                localStorage.setItem(`${key}`, JSON.stringify(user));
+            }
+            else{
+                alert("Current Password is wrong OR Password Does not matched !!!");
+            } 
+                            
         }
-        else{
-            alert(`Something went wrong !!!`);
-        }   
         
         
     }
-    else{
-        alert(`User's password is not Authorize...`)
-    }
-
-
 }
