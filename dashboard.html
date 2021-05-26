@@ -86,14 +86,14 @@
             <div class="userProfile">
               <hr>
               <label class="userDetails">FirstName</label>
-              <input  id="tfname" class="profile" type="text">
+              <input  id="tfname" class="profile" type="text" required="" pattern="[A-Za-z]{1,}" title="First name should be e.g John">
               <label class="userDetails">LastName</label>
-              <input  id="tlname" class="profile" type="text">
+              <input  id="tlname" class="profile" type="text" pattern="[a-zA-Z]{1,}" title="Last name should be e.g Doe" required="">
               <br><hr>
               <label class="userDetails">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input  id="temail" class="profile" type="text">
+              <input  id="temail" class="profile" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="It should be e.g. abc@xyz.com" required="">
               <label class="userDetails">Mobile</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input id="tmobile" class="profile" type="text">
+              <input id="tmobile" class="profile" type="text" pattern="[7-9]{1}[0-9]{9}" title="Mobile number with 7-9 and remaing 9 digit with 0-9" required="">
               <br><hr>
               <input  id="tbtnsave" onclick="updateProfile()" class="profile" type="button" value="Save Changes">
               <input  id="" onclick="enableProfile()" class="profile" type="button" value="Enable Edit">
@@ -112,10 +112,10 @@
               <input id="currentpassword" class="profile" type="text">
               <hr>
               <label class="userDetails">New Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input id="newpassord" class="profile" type="text">
+              <input id="newpassord" class="profile" type="text" pattern="[a-zA-Z0-9!@#$%^*()]{8,}" title="It required max. 8 character." autocomplete="on" required="">
               <hr>
               <label class="userDetails">Confirm Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input id="cnewpassword" class="profile" type="text">
+              <input id="cnewpassword" class="profile" type="text" pattern="[a-zA-Z0-9!@#$%^*()]{8,}" title="It required max. 8 character." autocomplete="on" required="">
               <hr>
               <input id="" type="button" onclick="changePassword();" class="saveBtn" value="Save Changes">
               <br><hr>

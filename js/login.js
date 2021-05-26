@@ -34,3 +34,13 @@ let doLogin = (e) => {
     // }
 }
 
+
+const loginAuth = () => {
+    // Session User Authentication
+    var userEmail = sessionStorage.getItem("Email");
+    // alert(userEmail);
+    if(userEmail != null){
+        alert("Without Logout you can not go for login !!");
+        window.location = 'dashboard.html'
+    }
+}

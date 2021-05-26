@@ -1,6 +1,7 @@
 var keys = Object.keys(localStorage);
 var authUser = sessionStorage.getItem('Email');
 
+
 const coordinates= ()=>{
     
     let cityName = document.getElementById("city");
@@ -39,7 +40,7 @@ const coordinates= ()=>{
 
     // Session User Authentication
     var userEmail = sessionStorage.getItem("Email");
-
+    
     if(userEmail === null){
         alert("Authentication Problem");
         window.location = 'login.html'
@@ -74,6 +75,7 @@ const addTask =()=>{
          }
 
 }
+
 const showTasks = () =>{
     for(key of keys){
         var userData = JSON.parse(localStorage.getItem(key));

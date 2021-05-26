@@ -12,7 +12,7 @@
 
     <title>Sign Up</title>
   </head>
-  <body>
+  <body onload="signupAuth();">
 
     <div class="myNavigationHeader">
         <div class="myNavigation">
@@ -44,7 +44,7 @@
                     
                 
                     <label for="dob">DOB</label><br>
-                    <input type="date" id="dob" name="dob" required="">
+                    <input type="date" min="1960-01-01" id="dob" name="dob" required="">
                         &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" id="gender_female" name="gender" value="female" required="">
                     <label for="female">Female</label>
@@ -65,8 +65,11 @@
             </div>
       </div>
     
-    
+    <!-- For User registration -->
     <script src="js/signup.js"></script>
+    <!-- For Routing Authentication -->
+    <script src="js/routeAuth.js"></script>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
   </body>
