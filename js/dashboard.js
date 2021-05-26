@@ -310,9 +310,6 @@ const updateProfile = () =>{
         }
     }
     // var authEmail = JSON.parse(localStorage.getItem('email'));
-    
-    
-
 }
 
 
