@@ -273,8 +273,8 @@ const updateProfile = () =>{
         var userData = JSON.parse(localStorage.getItem(key));
 
         if(authUser === userData.email){  
-            alert(allEmail);
-            alert(allMobile);
+            // alert(allEmail);
+            // alert(allMobile);
             // alert(pfname.value)
             if(pfname.value != "" && plname.value != "" ){
                 if(allMobile.includes(pmobile.value)){
