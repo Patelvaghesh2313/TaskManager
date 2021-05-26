@@ -124,12 +124,11 @@ const editTask = (e) =>{
             if(authUser === userData.email){
                 userData.task[newIndex]=editInputField.value;
                 localStorage.setItem(`${key}`, JSON.stringify(userData));
-            }
-            
-            
+                showTasks();
+            } 
         }
-        editInputField.value = "";
-        showTasks();
+        // editInputField.value = "";   
+        
     });
 }
 
