@@ -210,20 +210,19 @@ const disableProfile = () =>{
       document.getElementById("tmobile").disabled = true;
       document.getElementById("tbtnsave").disabled = true;
 
-      var loggedUser = sessionStorage.getItem("Email");
 
     
     for (key of keys){
 
         var userData = JSON.parse(localStorage.getItem(key));
         
-        if(loggedUser===userData.email){
+        if(authUser===userData.email){
             document.getElementById("tfname").value = userData.firstName;
             document.getElementById("tlname").value = userData.lastName;
             document.getElementById("temail").value = userData.email;
             document.getElementById("tmobile").value = userData.mobile;
         }
-    }
+}
 
     
     //  var authEmail = JSON.parse(localStorage.getItem('email'));
@@ -253,40 +252,48 @@ const updateProfile = () =>{
     let pemail = document.getElementById('temail');
     let pmobile = document.getElementById('tmobile');
 
-    var loggedUser = sessionStorage.getItem("Email");
-
-    
-
+    var allEmail = [];
+    var allMobile = [];
     for (key of keys){
-        let allEmail =[];
-        var userData = JSON.parse(localStorage.getItem(key));
         
-        if(loggedUser === userData.email){
-
+        var userData = JSON.parse(localStorage.getItem(key));
+        if(authUser === userData.email){
+            
         }
         else{
-            allEmail.push(userData.email);
+            allEmail.push(userData.email);            
+            allMobile.push(userData.mobile);
         }
-        
-        //alert(allEmail);
-        if(loggedUser === userData.email){   
-            alert(pfname.value)
-            if(pfname.value!="" && plname.value!="" ){
-                userData.firstName = pfname.value;
-                userData.lastName = plname.value;
-                userData.mobile = pmobile.value;
-                userData.email = pemail.value;
-                if(allEmail.includes(userData.email)){
+    }
+
+
+    for (key of keys){
+        var userData = JSON.parse(localStorage.getItem(key));
+
+        if(authUser === userData.email){  
+            alert(allEmail);
+            alert(allMobile);
+            // alert(pfname.value)
+            if(pfname.value != "" && plname.value != "" ){
+                if(allMobile.includes(pmobile.value)){
+                    alert('Mobile number is already used !!!')
+                }
+                else{
+                    userData.mobile = pmobile.value;
+                }
+                if(allEmail.includes(pemail.value)){
                     alert('Email-id is already used !!!')
                 }
                 else{
                     userData.email = pemail.value;
                 }
-                sessionStorage.setItem('Email',pemail.value);
-                localStorage.setItem(`${key}`, JSON.stringify(userData));
+                userData.firstName = pfname.value;
+                userData.lastName = plname.value;
+                 sessionStorage.setItem('Email',pemail.value);
+                 localStorage.setItem(`${key}`, JSON.stringify(userData));
             }
             else{
-                alert("Blank input is not accepted!!!");
+                alert("Blank input is not accepted!!!");                
             }                 
         }
         // Session User Authentication
