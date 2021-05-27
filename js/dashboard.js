@@ -318,7 +318,6 @@ const changePassword = () =>{
     let new_password =  document.getElementById('newpassord');
     let confirm_new_password = document.getElementById('cnewpassword');
     
-
     for (key of keys){
 
         var userData = JSON.parse(localStorage.getItem(key));
@@ -340,6 +339,7 @@ const changePassword = () =>{
                 }
                 sessionStorage.setItem('Password',new_password.value);
                 localStorage.setItem(`${key}`, JSON.stringify(user));
+                
             }
             else{
                 alert("Current Password is wrong OR Password Does not matched !!!");

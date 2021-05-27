@@ -48,6 +48,7 @@ body{
 .firstdiv{
     padding: 20px;
     float: left;
+    flex-wrap: wrap;
     background-color: coral;
 }
 
