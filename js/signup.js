@@ -42,7 +42,7 @@ let addUser=(e)=>{
         let d1 = new Date();
         
         if(usedEmail != email.value && usedMobile != mobile.value){
-            // if (password.value === copassword.value){
+             if (password.value === copassword.value){
                         // encryptPassword(password.value);
                         let user = {
                             firstName : fname.value,
@@ -59,10 +59,10 @@ let addUser=(e)=>{
                         localStorage.setItem(`user${localStorage.length}`, JSON.stringify(user));
                         e.preventDefault();
                         window.location = 'login.html'
-            // }
-            // else{
-            //             alert('Password and Confirm-Password Does not matched.')
-            // }
+            }
+            else{
+                        alert('Password and Confirm-Password Does not matched.')
+            }
         }
         
 }
