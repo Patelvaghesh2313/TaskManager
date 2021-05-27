@@ -326,7 +326,7 @@ const changePassword = () =>{
         var authUser = sessionStorage.getItem("Email");
 
         if(authUser===userData.email){   
-            if(authPassword===current_password.value && new_password.value===confirm_new_password.value){
+            if(encryptPassword(authPassword)===encryptPassword(current_password.value) && new_password.value===confirm_new_password.value){
                 let user = {
                     firstName : userData.firstName,
                     lastName : userData.lastName,
@@ -334,7 +334,7 @@ const changePassword = () =>{
                     mobile : userData.mobile,
                     gender : userData.gender,
                     dob : userData.dob,
-                    password : new_password.value,
+                    password : encryptPassword(new_password.value),
                     task : userData.task,
                     completetask : userData.completeTask
                 }

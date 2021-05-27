@@ -1,4 +1,15 @@
 
+const encryptPassword = (pwd) =>{
+    var encrypt = "";
+    // pwd.replaceAll(" ", "")
+    for(var i=0; i < pwd.length; i++){
+        encrypt = encrypt + pwd.charCodeAt(i);
+    }
+    // alert(encrypt);
+    return encrypt;
+}
+
+
 const loginAuth = () => {
     // Session User Authentication
     var userEmail = sessionStorage.getItem("Email");
@@ -31,3 +42,4 @@ const indexAuth = () => {
         window.location = 'dashboard.html'
     }
 }
+

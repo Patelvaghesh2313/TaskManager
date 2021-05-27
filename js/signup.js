@@ -42,8 +42,8 @@ let addUser=(e)=>{
         let d1 = new Date();
         
         if(usedEmail != email.value && usedMobile != mobile.value){
-            if (password.value === copassword.value){
-                        
+            // if (password.value === copassword.value){
+                        // encryptPassword(password.value);
                         let user = {
                             firstName : fname.value,
                             lastName : lname.value,
@@ -51,17 +51,18 @@ let addUser=(e)=>{
                             mobile : mobile.value,
                             gender : gender,
                             dob : dob.value,
-                            password : password.value,
+                            password : encryptPassword(password.value),
                             task : task,
                             completetask : completeTask
                         }
+                        alert(user.password);
                         localStorage.setItem(`user${localStorage.length}`, JSON.stringify(user));
                         e.preventDefault();
                         window.location = 'login.html'
-            }
-            else{
-                        alert('Password and Confirm-Password Does not matched.')
-            }
+            // }
+            // else{
+            //             alert('Password and Confirm-Password Does not matched.')
+            // }
         }
         
 }
