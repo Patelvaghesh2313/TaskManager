@@ -1,11 +1,4 @@
 
-.myblock{
-    background-color:steelblue;
-    width: auto;
-    height: 370px;
-    
-}
-
 h3{
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
@@ -21,7 +14,7 @@ h3{
 }
 
 input[type=text], select {
-    width: 100%;
+    width: auto;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -40,7 +33,7 @@ input[type=text], select {
     box-sizing: border-box;
   }
   input[type=password], select {
-    width: 100%;
+    width: auto;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -50,7 +43,7 @@ input[type=text], select {
   }
   
   input[type=submit] {
-    width: 100%;
+    width: auto;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -63,4 +56,5 @@ input[type=text], select {
   input[type=submit]:hover {
     background-color: #45a049;
   }
+  
   

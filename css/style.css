@@ -143,3 +143,40 @@ input[type=submit] {
     background-color: coral;
 }
   
+
+/* media query for login page */
+
+@media screen and (max-width:900px){
+    .mainLoginDiv{
+        width:100%;
+        height: auto;
+        margin: auto;
+    }
+    .loginContent{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: auto;
+    }
+    .myform input{
+        width: 70%;
+    }
+}
+
+/* media query for signuo page */
+@media screen and (max-width:900px) {
+    .mainSignupDiv{
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }
+    .signupContent{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: auto;
+    }
+    .myform input{
+        width: 70%;
+    }
+}
