@@ -164,7 +164,7 @@ input[type=submit] {
     }
 }
 
-/* media query for signuo page */
+/* media query for signup page */
 @media screen and (max-width:900px) {
     .mainSignupDiv{
         width: 100%;
@@ -179,5 +179,8 @@ input[type=submit] {
     }
     .myform input{
         width: 70%;
-    }
+        padding: auto;
+        margin: auto;
+        font-weight: auto;
+    } 
 }
